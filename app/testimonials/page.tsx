@@ -1,148 +1,122 @@
 "use client"
 
 import Navigation from "@/components/navigation"
-import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 
 const TestimonialsPage = () => {
-  const testimonials = [
-    {
-      quote: "Pavithra is a strategic and people-first leader. Her HR insights created measurable impact for our team.",
-      author: "Featured Recommendation",
-      role: "Senior HR Manager",
-      company: "Tech Startup",
-    },
-    {
-      quote: "Her guidance on career and growth planning was practical, clear, and confidence-building.",
-      author: "Client Testimonial",
-      role: "Marketing Professional",
-      company: "E-commerce Company",
-    },
-    {
-      quote: "Exceptional collaborator—blends empathy with execution to deliver results.",
-      author: "Business Partner",
-      role: "Operations Director",
-      company: "Financial Services",
-    },
-    {
-      quote: "Working with Pavithra transformed how we approach talent management and employee engagement.",
-      author: "CEO Recommendation",
-      role: "Chief Executive Officer",
-      company: "Growing Enterprise",
-    },
-    {
-      quote: "Her strategic insights and people-focused approach helped us build a thriving company culture.",
-      author: "Founder Testimonial",
-      role: "Startup Founder",
-      company: "SaaS Company",
-    },
-    {
-      quote: "Pavithra's expertise in HR transformation was instrumental in scaling our organization effectively.",
-      author: "Leadership Team",
-      role: "COO",
-      company: "Mid-sized Business",
-    },
-  ]
-
   return (
     <div className="min-h-screen gradient-bg">
       <Navigation />
 
       <div className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-5xl font-bold mb-6 gradient-text-purple">Testimonials</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Selected recommendations and feedback from clients, colleagues, and business partners.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                  <CardContent className="p-8">
-                    <div className="text-4xl text-accent mb-4">"</div>
-                    <p className="italic text-muted-foreground mb-6 leading-relaxed">{testimonial.quote}</p>
-                    <div className="border-t pt-4">
-                      <p className="font-semibold text-primary">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{testimonial.company}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* LinkedIn Embeds Section */}
-          <motion.div
+          {/* Tamil Connect Hyderabad Section */}
+          <motion.section
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mt-16"
+            className="relative mt-12 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-b from-white via-purple-50 to-pink-50"
           >
-            <h2 className="text-3xl font-bold text-center mb-8 gradient-text-purple">Live LinkedIn Recommendations</h2>
-            <p className="text-center text-muted-foreground mb-8">
-              View my latest recommendations directly from LinkedIn
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7304562838159663105?compact=1"
-                  height="400"
-                  width="100%"
-                  frameBorder={0}
-                  title="LinkedIn Recommendation 1"
-                  className="w-full"
-                ></iframe>
+            {/* Decorative background */}
+            <div className="absolute inset-0 opacity-20 bg-[url('/tch-carousel-1.jpg')] bg-cover bg-center"></div>
+
+            {/* Overlay content */}
+            <div className="relative z-10 px-6 md:px-12 py-16 text-center">
+              {/* Logo */}
+              <div className="flex justify-center mb-10">
+                <div className="w-28 h-28 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-purple-200">
+                  <span className="text-lg font-semibold text-purple-700">TCH</span>
+                </div>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7289728773932052480?compact=1"
-                  height="400"
-                  width="100%"
-                  frameBorder={0}
-                  title="LinkedIn Recommendation 2"
-                  className="w-full"
-                ></iframe>
+
+              {/* Title */}
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-400 bg-clip-text text-transparent">
+                Tamil Connect Hyderabad
+              </h2>
+
+              {/* Description */}
+              <div className="max-w-4xl mx-auto text-muted-foreground space-y-5 leading-relaxed">
+                <p>
+                  Founded in <strong className="text-purple-600">February 2025</strong> by Pavitra Simon, Tamil Connect Hyderabad
+                  was envisioned as a platform to unite the vibrant Tamil community living in the city. What began with five
+                  passionate members — Pavitra Simon, Naren, Sanjay, Nandini, and Vignesh — has now grown into a thriving network
+                  of over <strong className="text-purple-600">2,000 Tamilians</strong>, including 700+ active members.
+                </p>
+                <p>
+                  We host <strong>exclusive networking events, cultural meetups,</strong> and <strong>sports tournaments</strong>,
+                  building a space where Tamil professionals, families, and students can connect, collaborate, and celebrate
+                  their shared roots.
+                </p>
+                <p>
+                  Our mission is to make every Tamilian in Hyderabad feel at home — fostering friendship, culture, and
+                  collaboration beyond boundaries.
+                </p>
+              </div>
+
+              {/* Image Grid */}
+              <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+                {[
+                  "/tch-carousel-1.jpg",
+                  "/tch-carousel-2.jpg",
+                  "/tch-carousel-3.jpg",
+                  "/tch-carousel-4.jpg",
+                  "/tch-carousel-5.jpg",
+                  "/tch-carousel-6.jpg",
+                ].map((src, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+                  >
+                    <img
+                      src={src}
+                      alt={`TCH Event ${i + 1}`}
+                      className="object-cover w-full h-56 md:h-64 hover:scale-105 transition-transform duration-500"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="mt-14 flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://www.linkedin.com/posts/pavithra-simon-906059180_the-last-eve-was-like-i-cant-ask-anything-activity-7383464622655336448-od0u"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-medium shadow-lg hover:brightness-110 transition-all duration-300"
+                >
+                  Join Us on LinkedIn
+                </a>
+
+                <a
+                  href="https://www.instagram.com/tamilconnecthyderabad/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-pink-400 text-pink-600 font-medium bg-white hover:bg-pink-50 transition-all duration-300 shadow-sm"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 mr-2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M7.5 3h9a4.5 4.5 0 014.5 4.5v9a4.5 4.5 0 01-4.5 4.5h-9A4.5 4.5 0 013 16.5v-9A4.5 4.5 0 017.5 3zm4.5 6a3 3 0 100 6 3 3 0 000-6zm5.25-2.25h.008v.008h-.008V6.75z"
+                    />
+                  </svg>
+                  Connect on Instagram
+                </a>
               </div>
             </div>
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16"
-          >
-            <Card className="border-0 shadow-xl bg-gradient-to-r from-primary to-accent text-white">
-              <CardContent className="p-12 text-center">
-                <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
-                <p className="text-xl mb-8 opacity-90">Join the growing list of satisfied clients and partners.</p>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium bg-white text-primary rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  Get in Touch
-                </a>
-              </CardContent>
-            </Card>
-          </motion.div>
+          </motion.section>
         </div>
       </div>
     </div>

@@ -1,33 +1,19 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card"
 
 export const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      quote: "Pavithra is a strategic and people-first leader. Her HR insights created measurable impact for our team.",
-      author: "Featured Recommendation",
-      role: "Senior HR Manager",
-      company: "Tech Startup",
-    },
-    {
-      quote: "Her guidance on career and growth planning was practical, clear, and confidence-building.",
-      author: "Client Testimonial",
-      role: "Marketing Professional",
-      company: "E-commerce Company",
-    },
-    {
-      quote: "Exceptional collaborator—blends empathy with execution to deliver results.",
-      author: "Business Partner",
-      role: "Operations Director",
-      company: "Financial Services",
-    },
+  const LINKEDIN_EMBEDS = [
+    "https://www.linkedin.com/embed/feed/update/urn:li:activity:7380199804968218624?compact=1",
+    "https://www.linkedin.com/embed/feed/update/urn:li:activity:7377747658192596992?compact=1",
+    "https://www.linkedin.com/embed/feed/update/urn:li:activity:7380863778055368704?compact=1",
   ]
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-purple-50 to-amber-50">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,12 +21,17 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 gradient-text-purple">What Clients Say</h2>
-          <p className="text-lg text-muted-foreground">Trusted by professionals and organizations worldwide</p>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-700 via-yellow-500 to-purple-600 bg-clip-text text-transparent">
+            Testimonials
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Real recommendations and featured highlights directly from LinkedIn.
+          </p>
         </motion.div>
 
+        {/* Embedded LinkedIn Recommendations */}
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {LINKEDIN_EMBEDS.map((src, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -48,20 +39,40 @@ export const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                <CardContent className="p-8">
-                  <div className="text-4xl text-accent mb-4">"</div>
-                  <p className="italic text-muted-foreground mb-6 leading-relaxed">{testimonial.quote}</p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-primary">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{testimonial.company}</p>
-                  </div>
+              <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden bg-white">
+                <CardContent className="p-0">
+                  <iframe
+                    src={src.replace("?compact=1", "")}
+                    height="400"
+                    width="100%"
+                    frameBorder="0"
+                    allowFullScreen
+                    title={`LinkedIn Testimonial ${index + 1}`}
+                    className="w-full h-[400px] rounded-2xl"
+                  ></iframe>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <a
+            href="https://www.linkedin.com/in/pavithra-simon-906059180/details/recommendations/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-700 to-yellow-500 text-white font-medium shadow-lg hover:brightness-110 transition-all duration-300"
+          >
+            View More on LinkedIn
+          </a>
+        </motion.div>
       </div>
     </section>
   )

@@ -84,36 +84,38 @@ const Index = () => {
                 </div>
 
                 {/* Text Box 1 - Top Left */}
-                <div className="absolute -top-4 -left-4 bg-white rounded-2xl p-4 shadow-xl border border-purple-200 max-w-40">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-900 mb-1">1.4K+</div>
-                    <div className="text-xs text-purple-600 font-medium">YouTube Subscribers</div>
-                  </div>
-                </div>
+                {/* Text Box 1 - Top Left */}
+<div className="absolute -top-4 -left-4 bg-white rounded-2xl p-4 shadow-xl border border-purple-200 max-w-40">
+  <div className="text-center">
+    <div className="text-2xl font-bold text-purple-900 mb-1">15K+</div>
+    <div className="text-xs text-purple-600 font-medium">LinkedIn Members</div>
+  </div>
+</div>
 
-                {/* Text Box 2 - Top Right */}
-                <div className="absolute -top-4 -right-4 bg-amber-500 rounded-2xl p-4 shadow-xl border border-amber-400 max-w-40">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-white mb-1">700 +</div>
-                    <div className="text-xs text-amber-100">Community Members</div>
-                  </div>
-                </div>
+{/* Text Box 2 - Top Right */}
+<div className="absolute -top-4 -right-4 bg-amber-500 rounded-2xl p-4 shadow-xl border border-amber-400 max-w-40">
+  <div className="text-center">
+    <div className="text-lg font-bold text-white mb-1">2K+</div>
+    <div className="text-xs text-amber-100">TCH Community</div>
+    <div className="text-[10px] text-amber-100 mt-0.5">in Hyderabad</div>
+  </div>
+</div>
 
-                {/* Text Box 3 - Bottom Left */}
-                <div className="absolute -bottom-4 -left-4 bg-purple-600 rounded-2xl p-4 shadow-xl border border-purple-500 max-w-40">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-white mb-1">HR &</div>
-                    <div className="text-xs text-purple-200">Consultant Expert</div>
-                  </div>
-                </div>
+{/* Text Box 3 - Bottom Left */}
+<div className="absolute -bottom-4 -left-4 bg-purple-600 rounded-2xl p-4 shadow-xl border border-purple-500 max-w-40">
+  <div className="text-center">
+    <div className="text-lg font-bold text-white mb-1">6+</div>
+    <div className="text-xs text-purple-200">Startups Collaborated</div>
+  </div>
+</div>
 
-                {/* Text Box 4 - Bottom Right */}
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-amber-200 max-w-40">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-amber-600 mb-1">10+</div>
-                    <div className="text-xs text-purple-600 font-medium">Years Experience</div>
-                  </div>
-                </div>
+{/* Text Box 4 - Bottom Right */}
+<div className="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-amber-200 max-w-40">
+  <div className="text-center">
+    <div className="text-xl font-bold text-amber-600 mb-1">10+</div>
+    <div className="text-xs text-purple-600 font-medium">Years Experience</div>
+  </div>
+</div>
               </div>
             </div>
           </div>
@@ -187,7 +189,7 @@ const Index = () => {
               <div className="text-purple-200 text-sm">Community Members</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">10+</div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">6+</div>
               <div className="text-purple-200 text-sm">Years Experience</div>
             </div>
             <div>
