@@ -14,7 +14,6 @@ const Navigation = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
-    { path: "/skills", label: "Skills" },
     { path: "/contact", label: "Contact" },
     { path: "/blog", label: "Blogs" },
     { path: "/testimonials", label: "Testimonials" },
@@ -23,7 +22,7 @@ const Navigation = () => {
   const isActive = (path: string) => pathname === path
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

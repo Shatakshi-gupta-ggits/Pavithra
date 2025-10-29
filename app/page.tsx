@@ -1,14 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import Navigation from "@/components/navigation"
-import { TestimonialsSection } from "@/components/testimonials"
-import { motion } from "framer-motion"
+import React, { useEffect, useState, Suspense } from 'react'
+import dynamic from 'next/dynamic'
+import { Button } from '@/components/ui/button'
+
+// Lazy components adapted for Next.js
+const Navigation = dynamic(() => import('@/components/navigation'), { ssr: false, suspense: true })
+const Testimonials = dynamic(() => import('@/components/testimonials').then(m => m.TestimonialsSection), { ssr: false, suspense: true })
+
+// Environment handling for Next.js
+const env = (process.env.NEXT_PUBLIC_APP_ENV as string) ?? 'production'
 
 const Index = () => {
-  const carouselImages = ["/cur1.webp", "/cur2.webp", "/cur3.webp"]
+  const carouselImages = ['/cur1.webp', '/cur2.webp', '/cur3.webp']
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -18,114 +22,206 @@ const Index = () => {
     return () => clearInterval(id)
   }, [])
 
-  const stats = [
-    { value: "15K+", label: "LinkedIn Members", color: "from-purple-500 to-purple-700" },
-    { value: "2K+", label: "TCH Community", color: "from-amber-500 to-amber-700" },
-    { value: "6+", label: "Startups", color: "from-purple-600 to-pink-600" },
-    { value: "10+", label: "Years Experience", color: "from-amber-600 to-orange-600" },
-  ]
-
   return (
-    <div className="min-h-screen gradient-bg">
-      <Navigation />
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-amber-50">
+      {/* show small env badge in development */}
+      {env === 'development' && (
+        <div className="fixed top-4 right-4 z-50 px-3 py-1 rounded-md text-xs font-medium bg-yellow-200 text-yellow-900 shadow">
+          DEV
+        </div>
+      )}
+
+      <Suspense fallback={null}>
+        <Navigation />
+      </Suspense>
 
       {/* Hero Section */}
-      <section className="pt-32 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center mb-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-6xl lg:text-8xl font-bold gradient-text-purple mb-8"
-            >
+      <section className="pt-8 min-h-screen flex items-center relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          
+          {/* Large Pavithra Text */}
+          <div className="text-center mb-4">
+            <h1 className="text-7xl lg:text-8xl xl:text-8xl font-bold text-purple-900 leading-none">
               Pavithra Simon
-            </motion.h1>
+            </h1>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
-            >
-              <div className="space-y-4">
-                <p className="text-xl text-primary font-medium">Career & Financial Consultations for Individuals.</p>
-                <p className="text-xl text-primary font-medium">
+          {/* Grid Container with Circular Background */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center relative mt-8 lg:mt-16">
+            
+            {/* Left Side - Content */}
+            <div className="text-center lg:text-left space-y-8">
+              <div>
+                <p className="text-xl mb-4 text-purple-800 leading-relaxed font-medium">
+                  Career & Financial Consultations for Individuals.
+                </p>
+                <p className="text-xl text-purple-800 leading-relaxed font-medium">
                   HR Consultations & Brand Collaborations for Startups and Creators.
                 </p>
               </div>
-
-              <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                  <Link href="/contact">Let's Connect</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/blog">View Blogs</Link>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-amber-600 text-white hover:from-purple-700 hover:to-amber-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <a href="/contact">Let's Connect</a>
                 </Button>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
-            >
-              <div className="relative w-full max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-300 to-amber-300 rounded-full blur-3xl opacity-30" />
-                <img src="/main1.png" alt="Pavithra Simon" className="relative rounded-full w-full shadow-2xl" />
-                <div className="absolute -top-4 -right-4 grid grid-cols-2 gap-4">
-                  {stats.map((stat, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                      className={`bg-gradient-to-br ${stat.color} text-white p-4 rounded-xl shadow-lg text-center`}
-                    >
-                      <div className="font-bold text-2xl">{stat.value}</div>
-                      <div className="text-xs">{stat.label}</div>
-                      {stat.sublabel && <div className="text-xs">{stat.sublabel}</div>}
-                    </motion.div>
-                  ))}
+            {/* Right Side - Circular Background with Image and Text Boxes */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Large Circular Background */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                {/* Main Circle */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-amber-200 rounded-full shadow-2xl"></div>
+                
+                {/* Profile Image */}
+                <div className="absolute inset-4 bg-white rounded-full overflow-hidden shadow-lg relative">
+                  <img
+                    src="/main1.png"
+                    alt="Pavithra Simon"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Text Box 1 - Top Left */}
+                <div className="absolute -top-4 -left-4 bg-white rounded-2xl p-4 shadow-xl border border-purple-200 max-w-40">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-900 mb-1">1.4K+</div>
+                    <div className="text-xs text-purple-600 font-medium">YouTube Subscribers</div>
+                  </div>
+                </div>
+
+                {/* Text Box 2 - Top Right */}
+                <div className="absolute -top-4 -right-4 bg-amber-500 rounded-2xl p-4 shadow-xl border border-amber-400 max-w-40">
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-white mb-1">700 +</div>
+                    <div className="text-xs text-amber-100">Community Members</div>
+                  </div>
+                </div>
+
+                {/* Text Box 3 - Bottom Left */}
+                <div className="absolute -bottom-4 -left-4 bg-purple-600 rounded-2xl p-4 shadow-xl border border-purple-500 max-w-40">
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-white mb-1">HR &</div>
+                    <div className="text-xs text-purple-200">Consultant Expert</div>
+                  </div>
+                </div>
+
+                {/* Text Box 4 - Bottom Right */}
+                <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-amber-200 max-w-40">
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-amber-600 mb-1">10+</div>
+                    <div className="text-xs text-purple-600 font-medium">Years Experience</div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-
-          {/* Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-16 text-center"
-          >
-            <h2 className="text-3xl font-bold mb-8 gradient-text-purple">
-              Empowering People & Strengthening Businesses
-            </h2>
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl mb-8">
-              {carouselImages.map((img, index) => (
-                <img
-                  key={index}
-                  src={img || "/placeholder.svg"}
-                  alt={`Slide ${index + 1}`}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                    index === current ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
             </div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Driven by strategy, empathy, and impact, I blend human understanding with strategic insight to help
-              individuals, startups, and brands grow stronger, smarter, and thrive with purpose.
-            </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      <TestimonialsSection />
+      {/* Empowering People & Strengthening Businesses - Carousel Section */}
+      <section className="py-16 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-purple-900">
+            Empowering People & Strengthening Businesses
+          </h2>
+          <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden rounded-xl shadow-lg">
+            {carouselImages.map((src, index) => (
+              <div
+                key={src}
+                className={`absolute inset-0 transition-opacity duration-700 ${current === index ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <img
+                  src={src}
+                  alt={`Carousel ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+            {/* Indicators */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+              {carouselImages.map((_, i) => (
+                <span key={i} className={`h-2 w-2 rounded-full transition-all duration-300 ${
+                  current === i ? 'bg-amber-500 scale-125' : 'bg-purple-300'
+                }`}></span>
+              ))}
+            </div>
+          </div>
+          <p className="text-lg text-purple-700 max-w-4xl mx-auto text-center mt-8">
+            Driven by strategy, empathy, and impact, I blend human understanding with strategic insight to help individuals, startups, and brands grow stronger, smarter, and thrive with purpose.
+          </p>
+        </div>
+      </section>
+
+      {/* Testimonials Section (dynamically imported to reduce page bundle) */}
+      <Suspense fallback={null}>
+        <Testimonials />
+      </Suspense>
+
+      {/* Mission Statement */}
+      <section className="py-20 bg-gradient-to-r from-purple-50/50 to-amber-50/50 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-8 text-purple-900">
+            Thrive With Purpose
+          </h2>
+          <blockquote className="text-2xl italic text-amber-700 mb-8 leading-relaxed">
+            "We become what we think." — a belief I strongly live by.
+          </blockquote>
+          <p className="text-lg text-purple-700 max-w-3xl mx-auto leading-relaxed">
+            I blend human understanding with strategic insight to help individuals, startups, and brands grow stronger and smarter. From one-to-one consultations to brand collaborations, I focus on clarity, growth, and actionable outcomes.
+          </p>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">15K+</div>
+              <div className="text-purple-200 text-sm">LinkedIn fam</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">2K+</div>
+              <div className="text-purple-200 text-sm">Community Members</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">10+</div>
+              <div className="text-purple-200 text-sm">Years Experience</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">5+</div>
+              <div className="text-purple-200 text-sm">Startups Helped</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Add custom animations to global CSS */}
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out;
+        }
+      `}</style>
     </div>
   )
 }
