@@ -181,7 +181,7 @@ const Contact = () => {
                           id="name" 
                           name="name" 
                           required 
-                          placeholder="John Doe" 
+                          placeholder="Your name" 
                           className="border-2 border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                         />
                       </div>
@@ -192,7 +192,7 @@ const Contact = () => {
                           name="email"
                           type="email"
                           required
-                          placeholder="john@example.com"
+                          placeholder="email@example.com"
                           className="border-2 border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                         />
                       </div>
@@ -204,7 +204,7 @@ const Contact = () => {
                         id="phone" 
                         name="phone" 
                         type="tel" 
-                        placeholder="+1 (555) 123-4567" 
+                        placeholder="+91 1234567890" 
                         className="border-2 border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                       />
                     </div>
@@ -450,7 +450,7 @@ const Contact = () => {
                       <MapPin className="w-5 h-5 text-purple-600 mt-1" />
                       <div>
                         <p className="font-medium text-purple-800">Location</p>
-                        <p className="text-purple-600">Hyderabad (Primary) | Coimbatore (Secondary)</p>
+                        <p className="text-purple-600">Hyderabad (Primary) | Colombo (Secondary)</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
