@@ -119,7 +119,7 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-6 h-6" />,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/pavithrasimon",
+      href: "https://www.linkedin.com/in/pavithra-simon-%E2%9C%8D%F0%9F%8F%BC-906059180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       color: "hover:text-blue-600",
     },
   ]
@@ -128,13 +128,13 @@ const Contact = () => {
     {
       icon: <Instagram className="w-6 h-6" />,
       label: "Instagram",
-      href: "https://instagram.com/pavithrasimon",
+      href: "https://www.instagram.com/pavithra_.simon?igsh=cmQ2ZHEyMGFicHhz&utm_source=qr",
       color: "hover:text-pink-600",
     },
     {
       icon: <Youtube className="w-6 h-6" />,
       label: "YouTube",
-      href: "https://youtube.com/@pavithrasimon",
+      href: "https://youtube.com/@pavithrasimonhr?feature=shared",
       color: "hover:text-red-600",
     },
   ]

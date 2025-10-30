@@ -12,7 +12,7 @@ const Testimonials = dynamic(() => import('@/components/testimonials').then(m =>
 const env = (process.env.NEXT_PUBLIC_APP_ENV as string) ?? 'production'
 
 const Index = () => {
-  const carouselImages = ['/cur1.webp', '/cur2.webp', '/cur3.webp']
+  const carouselImages = ['/cur1.jpg', '/cur2.jpg', '/cur3.jpg']
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const Index = () => {
                 {/* Profile Image */}
                 <div className="absolute inset-4 bg-white rounded-full overflow-hidden shadow-lg relative">
                   <img
-                    src="/main1.png"
+                    src="/simon.png"
                     alt="Pavithra Simon"
                     className="w-full h-full object-cover"
                   />

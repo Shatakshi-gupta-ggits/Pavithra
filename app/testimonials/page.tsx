@@ -93,7 +93,7 @@ const TestimonialsPage = () => {
                 </a>
 
                 <a
-                  href="https://www.instagram.com/tamilconnecthyderabad/"
+                  href="https://www.instagram.com/tamilconnect_hyderabad?igsh=OWJ6dDlkOGZ4aGpo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-pink-400 text-pink-600 font-medium bg-white hover:bg-pink-50 transition-all duration-300 shadow-sm"
