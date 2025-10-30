@@ -1,13 +1,10 @@
 "use client"
-
 import type React from "react"
-
 import { useInView } from "react-intersection-observer"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
-import { Award, Users, TrendingUp, Heart } from "lucide-react"
 import Link from "next/link"
 
 const AnimatedCard = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
@@ -31,22 +28,22 @@ const AnimatedCard = ({ children, delay = 0 }: { children: React.ReactNode; dela
 const About = () => {
   const values = [
     {
-      icon: <Award className="w-8 h-8" />,
+      image: "/ab1.jpg",
       title: "Excellence",
       description: "Committed to delivering exceptional results in every engagement.",
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      image: "/ab2.jpg",
       title: "People-First",
       description: "Believing that success starts with empowered, valued individuals.",
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      image: "/ab3.jpg",
       title: "Growth",
       description: "Focused on continuous learning and sustainable development.",
     },
     {
-      icon: <Heart className="w-8 h-8" />,
+      image: "/ab4.jpg",
       title: "Integrity",
       description: "Building trust through transparency and ethical practices.",
     },
@@ -69,31 +66,8 @@ const About = () => {
                       <div className="relative w-64 h-64 lg:w-80 lg:h-80">
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-200 to-amber-200 shadow-2xl" />
                         <div className="absolute inset-4 bg-white rounded-full overflow-hidden shadow-lg">
-                          <img src="/main1.png" alt="Pavithra Simon" className="w-full h-full object-cover" />
+                          <img src="/about.jpg" alt="Pavithra Simon" className="w-full h-full object-cover" />
                         </div>
-
-                        <motion.div
-                          className="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 rounded-full"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.7, 1, 0.7],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Number.POSITIVE_INFINITY,
-                          }}
-                        />
-                        <motion.div
-                          className="absolute -bottom-4 -left-4 w-8 h-8 bg-purple-500 rounded-full"
-                          animate={{
-                            scale: [1, 1.3, 1],
-                            opacity: [0.6, 1, 0.6],
-                          }}
-                          transition={{
-                            duration: 2.5,
-                            repeat: Number.POSITIVE_INFINITY,
-                          }}
-                        />
                       </div>
                     </div>
                   </div>
@@ -141,16 +115,20 @@ const About = () => {
                 {values.map((value, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                    <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                      <div className="relative h-48 w-full">
+                        <img
+                          src={value.image}
+                          alt={value.title}
+                          className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
                       <CardContent className="p-6 text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white">
-                          {value.icon}
-                        </div>
                         <h3 className="text-xl font-bold mb-2">{value.title}</h3>
                         <p className="text-muted-foreground">{value.description}</p>
                       </CardContent>
@@ -167,48 +145,35 @@ const About = () => {
               <CardContent className="p-8">
                 <h2 className="text-3xl font-bold mb-8 gradient-text-purple text-center">Experience Highlights</h2>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div>
+                  {/* Left Column */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true }}
+                  >
                     <h3 className="text-xl font-bold mb-4 text-primary">Professional Journey</h3>
                     <ul className="space-y-3 text-muted-foreground">
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>10+ years in HR transformation and talent management</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>Led HRIS implementations and process improvements</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>Designed training programs for leadership development</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>Built high-performing teams across diverse industries</span>
-                      </li>
+                      <li className="flex items-start"><span className="text-accent mr-2">•</span>10+ years in HR transformation and talent management</li>
+                      <li className="flex items-start"><span className="text-accent mr-2">•</span>Designed training programs for leadership development</li>
+                      <li className="flex items-start"><span className="text-accent mr-2">•</span>Built high-performing teams across diverse industries</li>
                     </ul>
-                  </div>
-                  <div>
+                  </motion.div>
+
+                  {/* Right Column */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    viewport={{ once: true }}
+                  >
                     <h3 className="text-xl font-bold mb-4 text-primary">Community Impact</h3>
                     <ul className="space-y-3 text-muted-foreground">
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>15K+ LinkedIn members in professional network</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>2K+ members in Tamil Connect Hyderabad community</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>Regular speaker at HR and leadership events</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        <span>Mentor to emerging professionals and startups</span>
-                      </li>
+                      <li className="flex items-start"><span className="text-accent mr-2">•</span>15K+ LinkedIn members in professional network</li>
+                      <li className="flex items-start"><span className="text-accent mr-2">•</span>2K+ members in Tamil Connect Hyderabad community</li>
+                      <li className="flex items-start"><span className="text-accent mr-2">•</span>Mentor to emerging professionals and startups</li>
                     </ul>
-                  </div>
+                  </motion.div>
                 </div>
               </CardContent>
             </Card>

@@ -25,8 +25,8 @@ const TestimonialsPage = () => {
             <div className="relative z-10 px-6 md:px-12 py-16 text-center">
               {/* Logo */}
               <div className="flex justify-center mb-10">
-                <div className="w-28 h-28 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-purple-200">
-                  <span className="text-lg font-semibold text-purple-700">TCH</span>
+                <div className="w-28 h-28 bg-white/70 backdrop-blur-sm rounded-full overflow-hidden shadow-lg border border-purple-200">
+                  <img src="/tch.jpg" alt="Tamil Connect Hyderabad" className="w-full h-full object-cover" />
                 </div>
               </div>
 

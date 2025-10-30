@@ -12,7 +12,7 @@ const Testimonials = dynamic(() => import('@/components/testimonials').then(m =>
 const env = (process.env.NEXT_PUBLIC_APP_ENV as string) ?? 'production'
 
 const Index = () => {
-  const carouselImages = ['/cur1.jpg', '/cur2.jpg', '/cur3.jpg']
+  const carouselImages = ['/cur0.jpg','/cur1.jpg', '/cur2.jpg', '/cur4.jpg']
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
