@@ -5,8 +5,9 @@ import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
 
 // Lazy components adapted for Next.js
-const Navigation = dynamic(() => import('@/components/navigation'), { ssr: false, suspense: true })
-const Testimonials = dynamic(() => import('@/components/testimonials').then(m => m.TestimonialsSection), { ssr: false, suspense: true })
+// Note: Next's `dynamic` typing may not accept a `suspense` option depending on Next version/types
+const Navigation = dynamic(() => import('@/components/navigation'), { ssr: false })
+const Testimonials = dynamic(() => import('@/components/testimonials').then(m => m.TestimonialsSection), { ssr: false })
 
 // Environment handling for Next.js
 const env = (process.env.NEXT_PUBLIC_APP_ENV as string) ?? 'production'
