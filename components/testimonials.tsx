@@ -65,8 +65,7 @@ export const TestimonialsSection = () => {
 },
     {
       type: "linkedin", 
-      src: "https://www.linkedin.com/in/pavithra-simon-%E2%9C%8D%F0%9F%8F%BC-906059180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-
+      src: "https://www.linkedin.com/in/pavithra-ruth-simon-906059180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       title: "LinkedIn Testimonial 2"
     }
   ]
