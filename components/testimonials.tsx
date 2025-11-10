@@ -65,7 +65,7 @@ export const TestimonialsSection = () => {
 },
     {
       type: "linkedin", 
-      src: "https://www.linkedin.com/in/pavithra-ruth-simon-906059180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      src: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7377747658192596992?compact=1",
       title: "LinkedIn Testimonial 2"
     }
   ]
@@ -251,7 +251,7 @@ export const TestimonialsSection = () => {
           className="mt-16 text-center"
         >
           <a
-            href="https://www.linkedin.com/in/pavithra-simon-906059180/details/recommendations/"
+            href="https://www.linkedin.com/in/pavithra-ruth-simon-906059180?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-700 to-yellow-500 text-white font-medium shadow-lg hover:brightness-110 transition-all duration-300"
